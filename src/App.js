@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import { Route, Switch } from "react-router-dom";
+
+import LogInUser from "./components/login-user";
+import RegisterUser from "./components/register-user";
+import PurchaseHistory from "./components/purchase-history";
+import { LOGIN, REGISTER, PURCHASE_HISTORY } from "./components/urls";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Switch>
+        <Route path={LOGIN} exact component={LogInUser} />
+        <Route path={REGISTER} exact component={RegisterUser} />
+        <Route path={PURCHASE_HISTORY} exact component={PurchaseHistory} />
+      </Switch>
     </div>
   );
 }
