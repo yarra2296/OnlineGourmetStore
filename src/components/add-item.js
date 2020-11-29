@@ -72,7 +72,7 @@ onSubmit(e) {
 
 render() {
     return (<div className="form-wrapper">
-      <h3> Add New Item </h3>
+      <h2 className="title1"> Add New Item </h2>
       <Form onSubmit={this.onSubmit}>
 
       <Form.Group controlId="Id">

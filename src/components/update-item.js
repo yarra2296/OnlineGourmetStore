@@ -29,7 +29,7 @@ export default class UpdateItem extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3000/items/update-item/' + this.props.match.params.id)
+    axios.get('http://localhost:3000/items/update-item/' + this.state.id )
     .then(res => {
       this.setState({
         id: res.data.id,
@@ -104,7 +104,7 @@ export default class UpdateItem extends Component {
 
   render() {
     return (<div className="form-wrapper">
-      <h3> Edit Item </h3>
+      <h2 className="title1"> Edit Item </h2>
       <Form onSubmit={this.onSubmit}>
 
       <Form.Group controlId="Id">
