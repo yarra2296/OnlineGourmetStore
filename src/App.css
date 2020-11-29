@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.form-wrapper
+{
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+h3{
+  padding: 12px;
+  text-align: center;
+  color: #C82333;
+}

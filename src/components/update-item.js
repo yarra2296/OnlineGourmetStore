@@ -104,6 +104,7 @@ export default class UpdateItem extends Component {
 
   render() {
     return (<div className="form-wrapper">
+      <h3> Edit Item </h3>
       <Form onSubmit={this.onSubmit}>
 
       <Form.Group controlId="Id">
@@ -141,10 +142,10 @@ export default class UpdateItem extends Component {
       </Form.Group>
 
       <Button variant="danger" size="lg" block="block" type="submit">
-      Add Item
+      Update Item
       </Button>
 
-      <Button onClick={this.deleteStudent} size="lg" variant="danger">Delete</Button>
+      <Button onClick={this.deleteStudent} variant="danger" size="lg" block="block">Delete Item</Button>
       </Form>
       </div>);
     }

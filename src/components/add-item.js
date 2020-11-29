@@ -64,7 +64,7 @@ onSubmit(e) {
       image: this.state.image
   };
 
-  axios.post('http://localhost:3000/items/add-item', studentObject)
+  axios.post('http://localhost:3000/items/add-item', itemObject)
   .then(res => console.log(res.data));
 
   this.setState({ id:'', name: '', price: '', category: '', quantity: '', image: '' })
@@ -72,6 +72,7 @@ onSubmit(e) {
 
 render() {
     return (<div className="form-wrapper">
+      <h3> Add New Item </h3>
       <Form onSubmit={this.onSubmit}>
 
       <Form.Group controlId="Id">
