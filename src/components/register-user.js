@@ -5,13 +5,20 @@ import axios from "axios";
 import FormElement from "./form-element";
 import BottomLink from "./bottom-login-register-link";
 import { LOGIN, URL_USER_REGISTER } from "./urls";
+import { getJWTToken } from "./getToken";
 
 export default class RegisterUser extends Component {
   constructor(props) {
     super(props);
 
+    //TODO: uncomment below lines after logout is implemented
+    // if (getJWTToken() != null) {
+    //   props.history.push("/home");
+    // }
+
     // Setting up functions
-    this.onChangeUserName = this.onChangeUserName.bind(this);
+    this.onChangeEmail = this.onChangeEmail.bind(this);
+    this.onChangeName = this.onChangeName.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
     this.confirmPassword = this.onChangeConfirmPassword.bind(this);
 
@@ -19,14 +26,19 @@ export default class RegisterUser extends Component {
 
     // Setting up state
     this.state = {
-      user: "",
+      name: "",
+      email: "",
       password: "",
       confirmPassword: "",
     };
   }
 
-  onChangeUserName(e) {
-    this.setState({ user: e.target.value });
+  onChangeName(e) {
+    this.setState({ name: e.target.value });
+  }
+
+  onChangeEmail(e) {
+    this.setState({ email: e.target.value });
   }
 
   onChangePassword(e) {
@@ -41,37 +53,37 @@ export default class RegisterUser extends Component {
     e.preventDefault();
 
     const itemObject = {
-      user: this.state.user,
+      name: this.state.name,
+      email: this.state.email,
       password: this.state.password,
-      confirmPassword: this.state.confirmPassword,
     };
 
     //validation
     if (
-      this.state.user === "" ||
+      this.state.name === "" ||
+      this.state.email === "" ||
       this.state.password === "" ||
       this.state.confirmPassword === ""
     ) {
       console.log("Please enter all fields");
       return;
-    } else if (this.state.password === this.state.confirmPassword) {
+    } else if (this.state.password !== this.state.confirmPassword) {
       console.log("Passwords dont match");
       return;
     }
 
     console.log(
-      itemObject.user +
-        " " +
-        itemObject.password +
-        " " +
-        itemObject.confirmPassword
+      itemObject.name + " " + itemObject.email + " " + itemObject.password
     );
-    axios
-      .post(URL_USER_REGISTER, itemObject)
-      .then((res) => console.log(res.data));
+
+    axios.post(URL_USER_REGISTER, itemObject).then((res) => {
+      console.log(res.data);
+      //TODO: Need to redirect to login after user registered.
+    });
 
     this.setState({
-      user: "",
+      name: "",
+      email: "",
       password: "",
       confirmPassword: "",
     });
@@ -83,15 +95,21 @@ export default class RegisterUser extends Component {
         <h2 className="title1"> Register </h2>
 
         <Form onSubmit={this.onSubmit}>
-          <Form.Group controlId="username">
-            <Form.Label>UserName</Form.Label>
-            <Form.Control
-              type="text"
-              value={this.state.user}
-              onChange={this.onChangeUserName}
-            />
-          </Form.Group>
+          <FormElement
+            id="name"
+            label="Name"
+            fieldType="text"
+            value={this.state.name}
+            onChange={this.onChangeName.bind(this)}
+          />
 
+          <FormElement
+            id="email"
+            label="Email"
+            fieldType="text"
+            value={this.state.email}
+            onChange={this.onChangeEmail.bind(this)}
+          />
           <FormElement
             id="password"
             label="Password"
