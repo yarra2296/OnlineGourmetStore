@@ -6,7 +6,7 @@ class PaymentSuccess extends React.Component {
 
 
   onSubmit = () => {
-         return  <Redirect  to="/items/" />
+         return  <Redirect to="/" />
   }
 
   render() {
