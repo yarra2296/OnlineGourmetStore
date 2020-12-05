@@ -36,7 +36,7 @@ export default class UpdateItem extends Component {
   }
 
   componentDidMount() {
-    axios.get(URL_GET_EDIT_PRODUCT + '5fcc11f9c1a82d57942bfcb8' )
+    axios.get(URL_GET_EDIT_PRODUCT + this.props.match.params.id )
     .then(res => {
       this.setState({
         id: res.data.id,
@@ -94,7 +94,7 @@ export default class UpdateItem extends Component {
       image: this.state.image
     };
 
-    axios.put(URL_PUT_UPDATE_PRODUCT + '5fcc11f9c1a82d57942bfcb8', itemObject)
+    axios.put(URL_PUT_UPDATE_PRODUCT + this.props.match.params.id, itemObject)
     .then((res) => {
       console.log(res.data)
       console.log('Item successfully updated')
@@ -102,12 +102,12 @@ export default class UpdateItem extends Component {
       console.log(error)
     })
 
-    // Redirect to Item List 
+    // Redirect to Homepage
     this.props.history.push('/')
   }
 
   deleteItem() {
-    axios.delete(URL_DELETE_PRODUCT + '5fcc11f9c1a82d57942bfcb8')
+    axios.delete(URL_DELETE_PRODUCT + this.props.match.params.id)
     .then((res) => {
       console.log('Item successfully deleted!')
     }).catch((error) => {
