@@ -64,7 +64,7 @@ onSubmit(e) {
       image: this.state.image
   };
 
-  axios.post('http://localhost:3000/items/add-item', itemObject)
+  axios.post(URL_POST_CREATE_PRODUCT, itemObject)
   .then(res => console.log(res.data));
 
   this.setState({ id:'', name: '', price: '', category: '', quantity: '', image: '' })

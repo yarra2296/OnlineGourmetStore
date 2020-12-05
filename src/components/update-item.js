@@ -29,7 +29,7 @@ export default class UpdateItem extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3000/items/update-item/' + this.state.id )
+    axios.get(URL_GET_EDIT_PRODUCT + this.state.id )
     .then(res => {
       this.setState({
         id: res.data.id,
@@ -81,7 +81,7 @@ export default class UpdateItem extends Component {
       image: this.state.image
     };
 
-    axios.put('http://localhost:3000/items/update-item/' + this.props.match.params.id, itemObject)
+    axios.put(URL_PUT_UPDATE_PRODUCT + this.props.match.params.id, itemObject)
     .then((res) => {
       console.log(res.data)
       console.log('Item successfully updated')
@@ -94,7 +94,7 @@ export default class UpdateItem extends Component {
   }
 
   deleteStudent() {
-    axios.delete('http://localhost:3000/items/delete-item/' + this.props.obj._id)
+    axios.delete(URL_DELETE_PRODUCT + this.props.obj._id)
     .then((res) => {
       console.log('Item successfully deleted!')
     }).catch((error) => {
