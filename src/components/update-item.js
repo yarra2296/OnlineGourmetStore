@@ -138,7 +138,8 @@ export default class UpdateItem extends Component {
       </Form.Group>
 
       <Form.Group controlId="Image">
-      <Form.File id="imageFile" label="Image" onChange={this.onChangeItemImage} value={this.state.image}/>
+      <Form.Label>Image</Form.Label>
+      <Form.Control type="text" onChange={this.onChangeItemImage} value={this.state.image}/>
       </Form.Group>
 
       <Button variant="danger" size="lg" block="block" type="submit">
