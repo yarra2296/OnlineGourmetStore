@@ -107,7 +107,7 @@ export default class UpdateItem extends Component {
   }
 
   deleteItem() {
-    axios.delete(URL_DELETE_PRODUCT + this.props.obj._id)
+    axios.delete(URL_DELETE_PRODUCT + '5fcc11f9c1a82d57942bfcb8')
     .then((res) => {
       console.log('Item successfully deleted!')
     }).catch((error) => {
