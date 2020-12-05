@@ -2,6 +2,9 @@ import React, {Component} from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import {
+URL_POST_CREATE_PRODUCT
+} from "./urls";
 
 export default class AddItem extends Component {
 
@@ -9,21 +12,23 @@ export default class AddItem extends Component {
     super(props)
 
     // Setting up functions
-    this.onChangeItemId = this.onChangeItemId.bind(this);
+
     this.onChangeItemName = this.onChangeItemName.bind(this);
     this.onChangeItemPrice = this.onChangeItemPrice.bind(this);
     this.onChangeItemCategory = this.onChangeItemCategory.bind(this);
     this.onChangeItemQuantity = this.onChangeItemQuantity.bind(this);
+    this.onChangeItemDescription = this.onChangeItemDescription.bind(this);
     this.onChangeItemImage = this.onChangeItemImage.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     // Setting up state
     this.state = {
-      id: '',
+
       name: '',
       price: '',
       category: '',
       quantity:'',
+      description:'',
       image:''
   }
 }
@@ -47,6 +52,9 @@ onChangeItemCategory(e) {
 onChangeItemQuantity(e) {
     this.setState({quantity: e.target.value})
 }
+onChangeItemDescription(e){
+    this.setState({description: e.target.value})
+}
 
 onChangeItemImage(e) {
     this.setState({image: e.target.value})
@@ -61,24 +69,21 @@ onSubmit(e) {
       price: this.state.price,
       category: this.state.category,
       quantity: this.state.quantity,
-      image: this.state.image
+      description: this.state.description,
+      image: this.state.image,
+      available: true
   };
 
   axios.post(URL_POST_CREATE_PRODUCT, itemObject)
   .then(res => console.log(res.data));
 
-  this.setState({ id:'', name: '', price: '', category: '', quantity: '', image: '' })
+  this.setState({ id:'', name: '', price: '', category: '', quantity: '', description: '', image: '' })
 }
 
 render() {
     return (<div className="form-wrapper">
       <h2 className="title1"> Add New Item </h2>
       <Form onSubmit={this.onSubmit}>
-
-      <Form.Group controlId="Id">
-      <Form.Label>Id</Form.Label>
-      <Form.Control type="text" value={this.state.id} onChange={this.onChangeItemId}/>
-      </Form.Group>
 
       <Form.Group controlId="Name">
       <Form.Label>Name</Form.Label>
@@ -94,15 +99,20 @@ render() {
       <Form.Label>Category</Form.Label>
       <Form.Control as="select" value={this.state.category} onChange={this.onChangeItemCategory} className="my-1 mr-sm-2" custom>
       <option value="0">Choose...</option>
-      <option value="1">Pantry</option>
-      <option value="2">Oils & Vinegars</option>
-      <option value="3">Condiments, Butters & Spreads</option>
+      <option value="pantry">Pantry</option>
+      <option value="oils">Oils & Vinegars</option>
+      <option value="condiments">Condiments, Butters & Spreads</option>
       </Form.Control>
       </Form.Group>
 
       <Form.Group controlId="Quantity">
       <Form.Label>Quantity</Form.Label>
       <Form.Control type="text" value={this.state.quantity} onChange={this.onChangeItemQuantity}/>
+      </Form.Group>
+
+      <Form.Group controlId="Description">
+      <Form.Label>Description</Form.Label>
+      <Form.Control type="text" value={this.state.description} onChange={this.onChangeItemDescription}/>
       </Form.Group>
 
       <Form.Group controlId="Image">
