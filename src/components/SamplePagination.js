@@ -107,11 +107,11 @@ class SamplePagination extends React.Component {
         console.log(data);
         if(name === "edit") {
             e.preventDefault();
-            this.props.history.push(EDIT_ITEM);
+            this.props.history.push(EDIT_ITEM, {id: data._id});
         }
         if(name === "delete") {
             e.preventDefault();
-            this.props.history.push(EDIT_ITEM);
+            this.props.history.push(EDIT_ITEM, {id: data._id});
         }
     }
 
