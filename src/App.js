@@ -7,7 +7,7 @@ import RegisterUser from "./components/register-user";
 import PurchaseHistory from "./components/purchase-history";
 import Home from './components/Home';
 import ProductInfo from "./components/ProductInfo";
-import CartCheckout from "./components/cart-checkout";
+// import CartCheckout from "./components/cart-checkout";
 import {
   LOGIN,
   REGISTER,
@@ -26,7 +26,7 @@ function App() {
         <Route path={HOME} exact component={Home} />
         <Route path={DETAIL} exact component={ProductInfo} />
         <Route path={PURCHASE_HISTORY} exact component={PurchaseHistory} />
-        <Route path={CART_CHECKOUT} exact component={CartCheckout} />
+        {/*<Route path={CART_CHECKOUT} exact component={CartCheckout} />*/}
       </Switch>
     </div>
   );

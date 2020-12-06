@@ -16,14 +16,14 @@ class ProductInfo extends React.Component {
         super(props);
         this.state = {
             data: this.props.location.state.data,
-            userName: "admine"
+            userName: this.props.location.state.userName
         }
     }
 
     render() {
         return (
             <div className={"main bg-light"}>
-                <Header />
+                <Header userName={this.state.userName}/>
                 <div>
                     {/*<div className={"row mt-5 mb-5"}>
                         <div className={"col-sm-6 pt-5 pb-5"} >

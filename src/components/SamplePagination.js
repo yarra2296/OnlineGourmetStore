@@ -16,7 +16,7 @@ class SamplePagination extends React.Component {
             activePage: 1,
             data: this.props.data,
             updatedData: this.props.data,
-            userName: "admine"
+            userName: this.props.userName
         };
         this.handlePageChange = this.handlePageChange.bind(this);
         this.openProductPage = this.openProductPage.bind(this);
@@ -75,11 +75,11 @@ class SamplePagination extends React.Component {
 
     openProductPage(data) {
         console.log("Just for Testing", data);
-        this.props.history.push("/productInfo",{ data: data });
+        this.props.history.push("/productInfo",{ data: data, userName: this.state.userName });
     }
 
     render() {
-        console.log(this.state.data.length);
+        console.log(this.state.updatedData);
         return(
             <div className={"mt-5 ml-5"}>
                 <Pagination

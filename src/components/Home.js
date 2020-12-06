@@ -227,7 +227,7 @@ class Home extends React.Component {
                     image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/153/584/la-espa-ola-duo-aceitunas-rellenas-anchoas-twin-pack-olives-stuffed-with-anchioves-two-easy-open-cans-of-200g-each-5__50008.1605544848.png?c=1",
                     name: "SPANISH OLIVES STUFFED WITH ANCHOVIES DELUXE (2-PACK) BY LA ESPAÑOLA",
                     price: 80,
-                    category: "OILS AND VINEGARS",
+                    category: "Oils",
                     quantity: 10,
                     available: true
                 },
@@ -236,7 +236,7 @@ class Home extends React.Component {
                     image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/153/584/la-espa-ola-duo-aceitunas-rellenas-anchoas-twin-pack-olives-stuffed-with-anchioves-two-easy-open-cans-of-200g-each-5__50008.1605544848.png?c=1",
                     name: "SPANISH OLIVES STUFFED WITH ANCHOVIES DELUXE (2-PACK) BY LA ESPAÑOLA",
                     price: 80,
-                    category: "OILS AND VINEGARS",
+                    category: "Oils",
                     quantity: 10,
                     available: false
                 },
@@ -245,7 +245,7 @@ class Home extends React.Component {
                     image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/153/584/la-espa-ola-duo-aceitunas-rellenas-anchoas-twin-pack-olives-stuffed-with-anchioves-two-easy-open-cans-of-200g-each-5__50008.1605544848.png?c=1",
                     name: "SPANISH OLIVES STUFFED WITH ANCHOVIES DELUXE (2-PACK) BY LA ESPAÑOLA",
                     price: 80,
-                    category: "OILS AND VINEGARS",
+                    category: "Oils",
                     quantity: 10,
                     available: true
                 },
@@ -254,7 +254,7 @@ class Home extends React.Component {
                     image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/153/584/la-espa-ola-duo-aceitunas-rellenas-anchoas-twin-pack-olives-stuffed-with-anchioves-two-easy-open-cans-of-200g-each-5__50008.1605544848.png?c=1",
                     name: "SPANISH OLIVES STUFFED WITH ANCHOVIES DELUXE (2-PACK) BY LA ESPAÑOLA",
                     price: 80,
-                    category: "OILS AND VINEGARS",
+                    category: "Oils",
                     quantity: 10,
                     available: true
                 },
@@ -263,7 +263,7 @@ class Home extends React.Component {
                     image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/153/584/la-espa-ola-duo-aceitunas-rellenas-anchoas-twin-pack-olives-stuffed-with-anchioves-two-easy-open-cans-of-200g-each-5__50008.1605544848.png?c=1",
                     name: "SPANISH OLIVES STUFFED WITH ANCHOVIES DELUXE (2-PACK) BY LA ESPAÑOLA",
                     price: 80,
-                    category: "OILS AND VINEGARS",
+                    category: "Oils",
                     quantity: 10,
                     available: true
                 },
@@ -272,7 +272,7 @@ class Home extends React.Component {
                     image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/153/584/la-espa-ola-duo-aceitunas-rellenas-anchoas-twin-pack-olives-stuffed-with-anchioves-two-easy-open-cans-of-200g-each-5__50008.1605544848.png?c=1",
                     name: "SPANISH OLIVES STUFFED WITH ANCHOVIES DELUXE (2-PACK) BY LA ESPAÑOLA",
                     price: 80,
-                    category: "OILS AND VINEGARS",
+                    category: "Oils",
                     quantity: 10,
                     available: true
                 },
@@ -281,7 +281,7 @@ class Home extends React.Component {
                     image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/183/852/Untitled_design_1__74701.1605196761.png?c=1",
                     name: "ITALIAN BLACK TRUFFLE HONEY - 3.9 OZ (110G)",
                     price: 80,
-                    category: "CONDIMENTS, BUTTERS and SPREADS",
+                    category: "Condiments",
                     quantity: 10,
                     available: true
                 },
@@ -290,7 +290,7 @@ class Home extends React.Component {
                     image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/183/852/Untitled_design_1__74701.1605196761.png?c=1",
                     name: "ITALIAN BLACK TRUFFLE HONEY - 3.9 OZ (110G)",
                     price: 80,
-                    category: "CONDIMENTS, BUTTERS and SPREADS",
+                    category: "Condiments",
                     quantity: 10,
                     available: true
                 },
@@ -299,7 +299,7 @@ class Home extends React.Component {
                     image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/183/852/Untitled_design_1__74701.1605196761.png?c=1",
                     name: "ITALIAN BLACK TRUFFLE HONEY - 3.9 OZ (110G)",
                     price: 80,
-                    category: "CONDIMENTS, BUTTERS and SPREADS",
+                    category: "Condiments",
                     quantity: 10,
                     available: true
                 },
@@ -308,7 +308,7 @@ class Home extends React.Component {
                     image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/183/852/Untitled_design_1__74701.1605196761.png?c=1",
                     name: "ITALIAN BLACK TRUFFLE HONEY - 3.9 OZ (110G)",
                     price: 80,
-                    category: "CONDIMENTS, BUTTERS and SPREADS",
+                    category: "Condiments",
                     quantity: 10,
                     available: false
                 },
@@ -317,7 +317,7 @@ class Home extends React.Component {
                     image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/183/852/Untitled_design_1__74701.1605196761.png?c=1",
                     name: "ITALIAN BLACK TRUFFLE HONEY - 3.9 OZ (110G)",
                     price: 80,
-                    category: "CONDIMENTS, BUTTERS and SPREADS",
+                    category: "Condiments",
                     quantity: 10,
                     available: true
                 },
@@ -326,7 +326,7 @@ class Home extends React.Component {
                     image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/183/852/Untitled_design_1__74701.1605196761.png?c=1",
                     name: "ITALIAN BLACK TRUFFLE HONEY - 3.9 OZ (110G)",
                     price: 80,
-                    category: "CONDIMENTS, BUTTERS and SPREADS",
+                    category: "Condiments",
                     quantity: 10,
                     available: true
                 },
@@ -335,7 +335,7 @@ class Home extends React.Component {
                     image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/183/852/Untitled_design_1__74701.1605196761.png?c=1",
                     name: "ITALIAN BLACK TRUFFLE HONEY - 3.9 OZ (110G)",
                     price: 80,
-                    category: "CONDIMENTS, BUTTERS and SPREADS",
+                    category: "Condiments",
                     quantity: 10,
                     available: true
                 },
@@ -345,7 +345,8 @@ class Home extends React.Component {
             departments: ["All departments", "Pantry", "Oils", "Condiments"],
             departmentChecked: [],
             costChecked: [],
-            cost: ["All Price", "$1-$10", "$11-$30", "$30+"]
+            cost: ["All Price", "$1-$10", "$11-$30", "$30+"],
+            userName: "admin"
         };
         this.searchText = this.searchText.bind(this);
     }
@@ -353,7 +354,7 @@ class Home extends React.Component {
     searchText(event) {
         if(event.key === "Enter") {
             console.log(event.key, event.target.value);
-            const tempValue = this.state.tempData.filter((value) => value.name.toLowerCase().includes(event.target.value.toLowerCase()));
+            const tempValue = this.state.data.filter((value) => value.name.toLowerCase().includes(event.target.value.toLowerCase()));
             this.setState({
                 searchText: event.target.value,
                 tempData: tempValue,
@@ -364,20 +365,42 @@ class Home extends React.Component {
 
     handleCheckbox = (e, s, category) => {
         if(category === "department") {
-            const checkedBoxes = [...this.state.departmentChecked];
+            let checkedBoxes = [...this.state.departmentChecked];
             if (e.target.checked) {
                 checkedBoxes.push(s);
-                if(s !== "All departments") {
+                /*if(s !== "All departments") {
                     const tempData = this.state.data.filter((value) => value.category === s);
                     this.setState({
                         tempData: tempData
                     })
-                }
+                }*/
             } else {
                 const index = checkedBoxes.findIndex((ch) => ch === s);
                 checkedBoxes.splice(index, 1);
             }
             this.setState({departmentChecked: checkedBoxes});
+            let updatedData = [];
+            var old_data = this.state.data;
+            console.log(checkedBoxes);
+            if(checkedBoxes.length <= 0 || checkedBoxes.length === undefined) {
+                this.setState({
+                    tempData: old_data,
+                })
+            }
+            else {
+                if (s !== "All departments") {
+                    for (var i = 0; i < checkedBoxes.length; i++) {
+                        for (var j = 0; j < this.state.data.length; j++) {
+                            if (checkedBoxes[i] === this.state.data[j].category) {
+                                updatedData.push(this.state.tempData[j]);
+                            }
+                        }
+                    };
+                    this.setState({
+                        tempData: updatedData
+                    })
+                }
+            }
         }
         else {
             const checkedBoxes = [...this.state.costChecked];
@@ -404,13 +427,13 @@ class Home extends React.Component {
             }
             this.setState({costChecked: checkedBoxes});
         }
-    }
+    };
 
     render() {
-        console.log("updated search value is:", this.state.departmentChecked, this.state.costChecked);
+        console.log("updated search value is:", this.state.tempData);
         return(
             <div className={"main bg-light"}>
-                <Header />
+                <Header userName={this.state.userName}/>
                 {/*<h1>Hello</h1>*/}
                 {/*<Footer style={"display: sticky; bottom: 0px"}/>*/}
                 <div className="row mt-5 mb-5" style={{marginLeft: 100, marginRight: 100}}>
@@ -433,7 +456,7 @@ class Home extends React.Component {
                                 )})}
                             </div>
                         </div>
-                        <div className={"mt-5"}>
+                        {/*<div className={"mt-5"}>
                             <h5>Cost</h5>
                             <hr />
                             <div className={"col"}>
@@ -449,11 +472,11 @@ class Home extends React.Component {
                                     </label>
                                 )})}
                             </div>
-                        </div>
+                        </div>*/}
                     </div>
                     <div className="col-md-10">
                         <Samplecarousel />
-                        <SamplePagination data={this.state.tempData}/>
+                        <SamplePagination data={this.state.tempData} userName={this.state.userName}/>
                     </div>
                 </div>
             </div>
