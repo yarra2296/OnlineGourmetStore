@@ -13,7 +13,7 @@ class Header extends React.Component {
     render() {
         return(
             <div className={"main"}>
-                <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: yellow">
+                <nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-default navbar-fixed-top">
                     <a className="navbar-brand" href="/">Online Gorment Store</a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
