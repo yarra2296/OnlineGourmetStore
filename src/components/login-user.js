@@ -5,10 +5,15 @@ import axios from "axios";
 import FormElement from "./form-element";
 import BottomLink from "./bottom-login-register-link";
 import { REGISTER, URL_USER_LOGIN } from "./urls";
+import { getJWTToken, setJWTToken } from "./getToken";
 
 export default class LogInUser extends Component {
   constructor(props) {
     super(props);
+
+    if (getJWTToken() != null) {
+      props.history.push("/home");
+    }
 
     // Setting up functions
     this.onSubmit = this.onSubmit.bind(this);
@@ -40,11 +45,14 @@ export default class LogInUser extends Component {
       user: this.state.user,
       password: this.state.password,
     };
+
     console.log(itemObject.user + " " + itemObject.password);
 
     axios.post(URL_USER_LOGIN, itemObject).then((res) => {
       console.log(res.data);
-      if (res.status === "success") {
+      if (res.status === 200) {
+        setJWTToken(res.data.token);
+
         console.log("Valid username and password");
         this.setState({
           user: "",

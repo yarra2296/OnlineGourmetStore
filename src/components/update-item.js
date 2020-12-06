@@ -2,6 +2,11 @@ import React, {Component} from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import {
+  URL_GET_EDIT_PRODUCT,
+  URL_PUT_UPDATE_PRODUCT,
+  URL_DELETE_PRODUCT
+} from "./urls";
 
 export default class UpdateItem extends Component {
 
@@ -9,27 +14,29 @@ export default class UpdateItem extends Component {
     super(props)
 
     // Setting up functions
-    this.onChangeItemId = this.onChangeItemId.bind(this);
+
     this.onChangeItemName = this.onChangeItemName.bind(this);
     this.onChangeItemPrice = this.onChangeItemPrice.bind(this);
     this.onChangeItemCategory = this.onChangeItemCategory.bind(this);
     this.onChangeItemQuantity = this.onChangeItemQuantity.bind(this);
+    this.onChangeItemDescription = this.onChangeItemDescription.bind(this);
     this.onChangeItemImage = this.onChangeItemImage.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     // Setting up state
     this.state = {
-      id: '',
+
       name: '',
       price: '',
       category: '',
       quantity:'',
+      description:'',
       image:''
     }
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3000/items/update-item/' + this.state.id )
+    axios.get(URL_GET_EDIT_PRODUCT + this.props.match.params.id )
     .then(res => {
       this.setState({
         id: res.data.id,
@@ -37,6 +44,7 @@ export default class UpdateItem extends Component {
         price: res.data.price,
         category: res.data.category,
         quantity: res.data.quantity,
+        description: res.data.description,
         image: res.data.image
       });
     })
@@ -47,6 +55,10 @@ export default class UpdateItem extends Component {
 
   onChangeItemId(e) {
     this.setState({id: e.target.value})
+  }
+
+  onChangeItemDescription(e) {
+    this.setState({description: e.target.value})
   }
 
   onChangeItemName(e) {
@@ -78,10 +90,11 @@ export default class UpdateItem extends Component {
       price: this.state.price,
       category: this.state.category,
       quantity: this.state.quantity,
+      description: this.state.description,
       image: this.state.image
     };
 
-    axios.put('http://localhost:3000/items/update-item/' + this.props.match.params.id, itemObject)
+    axios.put(URL_PUT_UPDATE_PRODUCT + this.props.match.params.id, itemObject)
     .then((res) => {
       console.log(res.data)
       console.log('Item successfully updated')
@@ -89,12 +102,12 @@ export default class UpdateItem extends Component {
       console.log(error)
     })
 
-    // Redirect to Item List 
-    this.props.history.push('/item-list')
+    // Redirect to Homepage
+    this.props.history.push('/')
   }
 
-  deleteStudent() {
-    axios.delete('http://localhost:3000/items/delete-item/' + this.props.obj._id)
+  deleteItem() {
+    axios.delete(URL_DELETE_PRODUCT + this.props.match.params.id)
     .then((res) => {
       console.log('Item successfully deleted!')
     }).catch((error) => {
@@ -107,10 +120,6 @@ export default class UpdateItem extends Component {
       <h2 className="title1"> Edit Item </h2>
       <Form onSubmit={this.onSubmit}>
 
-      <Form.Group controlId="Id">
-      <Form.Label>Id</Form.Label>
-      <Form.Control type="text" value={this.state.id} onChange={this.onChangeItemId}/>
-      </Form.Group>
 
       <Form.Group controlId="Name">
       <Form.Label>Name</Form.Label>
@@ -126,9 +135,9 @@ export default class UpdateItem extends Component {
       <Form.Label>Category</Form.Label>
       <Form.Control as="select" value={this.state.category} onChange={this.onChangeItemCategory} className="my-1 mr-sm-2" custom>
       <option value="0">Choose...</option>
-      <option value="1">Pantry</option>
-      <option value="2">Oils & Vinegars</option>
-      <option value="3">Condiments, Butters & Spreads</option>
+      <option value="pantry">Pantry</option>
+      <option value="oils">Oils & Vinegars</option>
+      <option value="condiments">Condiments, Butters & Spreads</option>
       </Form.Control>
       </Form.Group>
 
@@ -137,15 +146,21 @@ export default class UpdateItem extends Component {
       <Form.Control type="text" value={this.state.quantity} onChange={this.onChangeItemQuantity}/>
       </Form.Group>
 
+      <Form.Group controlId="Description">
+      <Form.Label>Description</Form.Label>
+      <Form.Control type="text" value={this.state.description} onChange={this.onChangeItemDescription}/>
+      </Form.Group>
+
       <Form.Group controlId="Image">
-      <Form.File id="imageFile" label="Image" onChange={this.onChangeItemImage} value={this.state.image}/>
+      <Form.Label>Image</Form.Label>
+      <Form.Control type="text" onChange={this.onChangeItemImage} value={this.state.image}/>
       </Form.Group>
 
       <Button variant="danger" size="lg" block="block" type="submit">
       Update Item
       </Button>
 
-      <Button onClick={this.deleteStudent} variant="danger" size="lg" block="block">Delete Item</Button>
+      <Button onClick={this.deleteItem} variant="danger" size="lg" block="block">Delete Item</Button>
       </Form>
       </div>);
     }

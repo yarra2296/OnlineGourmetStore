@@ -7,7 +7,15 @@ import RegisterUser from "./components/register-user";
 import PurchaseHistory from "./components/purchase-history";
 import Home from './components/Home';
 import ProductInfo from "./components/ProductInfo";
-import { LOGIN, REGISTER, PURCHASE_HISTORY, DETAIL, HOME } from "./components/urls";
+import CartCheckout from "./components/cart-checkout";
+import {
+  LOGIN,
+  REGISTER,
+  PURCHASE_HISTORY,
+  HOME,
+  DETAIL,
+  CART_CHECKOUT,
+} from "./components/urls";
 
 function App() {
   return (
@@ -18,6 +26,7 @@ function App() {
         <Route path={HOME} exact component={Home} />
         <Route path={DETAIL} exact component={ProductInfo} />
         <Route path={PURCHASE_HISTORY} exact component={PurchaseHistory} />
+        <Route path={CART_CHECKOUT} exact component={CartCheckout} />
       </Switch>
     </div>
   );
