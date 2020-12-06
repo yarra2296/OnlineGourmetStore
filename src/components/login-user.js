@@ -5,14 +5,15 @@ import axios from "axios";
 import FormElement from "./form-element";
 import BottomLink from "./bottom-login-register-link";
 import { REGISTER, URL_USER_LOGIN } from "./urls";
-import { getJWTToken, setJWTToken } from "./getToken";
+import { getJWTToken, setJWTToken, setUserName } from "./getToken";
+import { withRouter } from "react-router-dom";
 
-export default class LogInUser extends Component {
+class LogInUser extends Component {
   constructor(props) {
     super(props);
 
     if (getJWTToken() != null) {
-      props.history.push("/home");
+      props.history.push("/");
     }
 
     // Setting up functions
@@ -48,16 +49,31 @@ export default class LogInUser extends Component {
 
     console.log(itemObject.user + " " + itemObject.password);
 
+    //check if admin
+    if (this.state.user === "admin" || this.state.password === "admin") {
+      setJWTToken("admin");
+      setUserName("admin");
+
+      this.setState({
+        user: "",
+        password: "",
+      });
+
+      this.props.history.push("/");
+    }
+
     axios.post(URL_USER_LOGIN, itemObject).then((res) => {
       console.log(res.data);
       if (res.status === 200) {
         setJWTToken(res.data.token);
-
+        setUserName(res.data.user.name);
         console.log("Valid username and password");
         this.setState({
           user: "",
           password: "",
         });
+
+        this.props.history.push("/");
       } else {
         console.log("Invalid combination of username and password");
         return;
@@ -100,3 +116,5 @@ export default class LogInUser extends Component {
     );
   }
 }
+
+export default withRouter(LogInUser);

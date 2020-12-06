@@ -7,6 +7,8 @@ import {
 import Header from "./Header";
 import {Button, Card} from "react-bootstrap";
 import Footer from "./Footer";
+import {getUserName} from "./getToken";
+import {EDIT_ITEM} from "./urls";
 
 
 class ProductInfo extends React.Component {
@@ -15,7 +17,20 @@ class ProductInfo extends React.Component {
         super(props);
         this.state = {
             data: this.props.location.state.data,
-            userName: this.props.location.state.userName
+            userName: getUserName()
+        }
+        this.openPage = this.openPage.bind(this);
+    }
+
+    openPage(e, data, name) {
+        console.log(data);
+        if(name === "edit") {
+            e.preventDefault();
+            this.props.history.push(EDIT_ITEM, {id: data._id});
+        }
+        if(name === "delete") {
+            e.preventDefault();
+            this.props.history.push(EDIT_ITEM, {id: data._id});
         }
     }
 
@@ -24,7 +39,7 @@ class ProductInfo extends React.Component {
             <div className={"main bg-light"}>
                 <Header userName={this.state.userName}/>
                 <div>
-                    <div className={"row"} style={{marginLeft: "10%", marginRight: "10%", marginTop: "3%", backgroundColor: "white", overflowY: "hidden"}}>
+                    <div className={"row"} style={{marginLeft: "10%", marginRight: "10%", backgroundColor: "white", overflowY: "hidden"}}>
                         <div className={"col-md-6 pt-5 pb-5"}>
                             <img src={this.state.data.image} width={"90%"} style={{marginLeft: "8%"}}></img>
                         </div>
@@ -47,13 +62,13 @@ class ProductInfo extends React.Component {
                             <div className={"row text-align-center mt-3"}>
                                 <div className={"col ml-2"}>
                                     {this.state.userName === "admin" ?
-                                        <Button variant="primary" style={{backgroundColor: '#333B3F', height: 50, width: 200}}>EDIT</Button> :
+                                        <Button variant="primary" style={{backgroundColor: '#333B3F', height: 50, width: 200}} onClick={(e) => this.openPage(e, this.state.data, "edit")}>EDIT</Button> :
                                         <div></div>
                                     }
                                 </div>
                                 <div className={"col"}>
                                     {this.state.userName === "admin" ?
-                                        <Button variant="primary" style={{backgroundColor: '#333B3F', height: 50, width: 200}}>DELETE</Button> :
+                                        <Button variant="primary" style={{backgroundColor: '#333B3F', height: 50, width: 200}} onClick={(e) => this.openPage(e, this.state.data, "edit")}>DELETE</Button> :
                                         <div></div>
                                     }
                                 </div>

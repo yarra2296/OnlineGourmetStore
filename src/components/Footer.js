@@ -11,10 +11,10 @@ class Footer extends React.Component {
 
     render() {
         return(
-            <div>
+            <div style={{backgroundColor: "#333B3F"}}>
                 <footer className="page-footer font-small blue">
-                    <div className="footer-copyright text-center py-3">© 2020 Copyright:
-                        <a href="https://reactjs.org/">Gourmet Shop</a>
+                    <div className="footer-copyright text-center py-3 white" style={{color: "white"}}>© 2020 Copyright:
+                        <a href="https://reactjs.org/"> Gourmet Shop</a>
                     </div>
                 </footer>
             </div>

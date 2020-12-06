@@ -7,7 +7,8 @@ import {
     useHistory,
     withRouter
 } from "react-router-dom";
-import {getJWTToken} from "./getToken";
+import {getJWTToken, getUserName} from "./getToken";
+import {EDIT_ITEM, HOME} from "./urls";
 
 
 class SamplePagination extends React.Component {
@@ -17,12 +18,13 @@ class SamplePagination extends React.Component {
             activePage: 1,
             data: this.props.data,
             updatedData: this.props.data,
-            userName: this.props.userName,
+            userName: getUserName(),
             cartData: [],
         };
         this.handlePageChange = this.handlePageChange.bind(this);
         this.openProductPage = this.openProductPage.bind(this);
         this.updateCartInfo = this.updateCartInfo.bind(this);
+        this.openPage = this.openPage.bind(this);
     }
 
     componentDidMount() {
@@ -39,7 +41,7 @@ class SamplePagination extends React.Component {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': getJWTToken()
+                'auth_token': getJWTToken()
             },
         })
             .then((res) => res.json())
@@ -89,6 +91,18 @@ class SamplePagination extends React.Component {
             updatedData: tempData,
         });
         window.scrollTo(0, 350)
+    }
+
+    openPage(e, data, name) {
+        console.log(data);
+        if(name === "edit") {
+            e.preventDefault();
+            this.props.history.push(EDIT_ITEM);
+        }
+        if(name === "delete") {
+            e.preventDefault();
+            this.props.history.push(EDIT_ITEM);
+        }
     }
 
     updateCartInfo(data) {
@@ -157,13 +171,13 @@ class SamplePagination extends React.Component {
                                 <div className={"row ml-4 mt-3"}>
                                     <div className={"col-sm-4"}>
                                         {this.state.userName === "admin" ?
-                                            <Button variant="primary" style={{backgroundColor: '#333B3F', height: 50, width: 80}}>EDIT</Button> :
+                                            <Button variant="primary" style={{backgroundColor: '#333B3F', height: 50, width: 80}} onClick={(e) => this.openPage(e, value, "edit")}>EDIT</Button> :
                                             <div></div>
                                         }
                                     </div>
                                     <div className={"col-sm-8"}>
                                         {this.state.userName === "admin" ?
-                                            <Button variant="primary" style={{backgroundColor: '#333B3F', height: 50, width: 80}}>DELETE</Button> :
+                                            <Button variant="primary" style={{backgroundColor: '#333B3F', height: 50, width: 80}} onClick={(e) => this.openPage(e, value, "delete")}>DELETE</Button> :
                                             <div></div>
                                         }
                                     </div>

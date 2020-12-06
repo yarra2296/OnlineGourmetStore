@@ -12,9 +12,9 @@ export default class RegisterUser extends Component {
     super(props);
 
     //TODO: uncomment below lines after logout is implemented
-    // if (getJWTToken() != null) {
-    //   props.history.push("/home");
-    // }
+    if (getJWTToken() != null) {
+      props.history.push("/home");
+    }
 
     // Setting up functions
     this.onChangeEmail = this.onChangeEmail.bind(this);
@@ -87,6 +87,8 @@ export default class RegisterUser extends Component {
       password: "",
       confirmPassword: "",
     });
+
+    this.props.history.push("/login");
   }
 
   render() {
