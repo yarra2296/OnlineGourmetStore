@@ -93,6 +93,10 @@ export default class RegisterUser extends Component {
 
   render() {
     return (
+            <div class="container">
+      <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
       <div className="form-wrapper">
         <h2 className="title1"> Register </h2>
 
@@ -134,6 +138,10 @@ export default class RegisterUser extends Component {
         </Form>
 
         <BottomLink url={LOGIN} text="Already registered?" name="login" />
+      </div>
+      </div>
+      <div class="col-sm-2"></div>
+      </div>
       </div>
     );
   }

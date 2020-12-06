@@ -83,38 +83,46 @@ class LogInUser extends Component {
 
   render() {
     return (
+      <div class="container">
+      <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
       <div className="form-wrapper">
-        <h2 className="title1"> Login </h2>
+      <h2 className="title1"> Login </h2>
 
-        <Form onSubmit={this.onSubmit}>
-          <FormElement
-            id="username"
-            label="User Name"
-            fieldType="text"
-            value={this.state.user}
-            onChange={this.onChangeUserName.bind(this)}
-          />
+      <Form onSubmit={this.onSubmit}>
+      <FormElement
+      id="username"
+      label="User Name"
+      fieldType="text"
+      value={this.state.user}
+      onChange={this.onChangeUserName.bind(this)}
+      />
 
-          <FormElement
-            id="password"
-            label="Password"
-            fieldType="password"
-            value={this.state.password}
-            onChange={this.onChangePassword.bind(this)}
-          />
+      <FormElement
+      id="password"
+      label="Password"
+      fieldType="password"
+      value={this.state.password}
+      onChange={this.onChangePassword.bind(this)}
+      />
 
-          <Button variant="primary" size="lg" block="block" type="submit">
-            Log In
-          </Button>
-        </Form>
-        <BottomLink
-          url={REGISTER}
-          text="Don't have an account?"
-          name="register"
-        />
+      <Button variant="primary" size="lg" block="block" type="submit">
+      Log In
+      </Button>
+      </Form>
+      <BottomLink
+      url={REGISTER}
+      text="Don't have an account?"
+      name="register"
+      />
       </div>
-    );
+      </div>
+      <div class="col-sm-2"></div>
+      </div>
+      </div>
+      );
+    }
   }
-}
 
-export default withRouter(LogInUser);
+  export default withRouter(LogInUser);
