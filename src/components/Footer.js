@@ -13,8 +13,8 @@ class Footer extends React.Component {
         return(
             <div>
                 <footer className="page-footer font-small blue">
-                    <div className="footer-copyright text-center py-3">© 2018 Copyright:
-                        <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+                    <div className="footer-copyright text-center py-3">© 2020 Copyright:
+                        <a href="https://reactjs.org/">Gourmet Shop</a>
                     </div>
                 </footer>
             </div>

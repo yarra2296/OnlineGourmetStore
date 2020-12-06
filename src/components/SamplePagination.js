@@ -7,6 +7,7 @@ import {
     useHistory,
     withRouter
 } from "react-router-dom";
+import {getJWTToken} from "./getToken";
 
 
 class SamplePagination extends React.Component {
@@ -16,10 +17,12 @@ class SamplePagination extends React.Component {
             activePage: 1,
             data: this.props.data,
             updatedData: this.props.data,
-            userName: this.props.userName
+            userName: this.props.userName,
+            cartData: [],
         };
         this.handlePageChange = this.handlePageChange.bind(this);
         this.openProductPage = this.openProductPage.bind(this);
+        this.updateCartInfo = this.updateCartInfo.bind(this);
     }
 
     componentDidMount() {
@@ -30,7 +33,23 @@ class SamplePagination extends React.Component {
         }
         this.setState({
             updatedData: tempData,
+        });
+        fetch("http://localhost:4000/cart/",{
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': getJWTToken()
+            },
         })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("add to cart data is:", data);
+                this.setState({
+                    cartData: data,
+                })
+            })
+            .catch(console.log);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -54,7 +73,6 @@ class SamplePagination extends React.Component {
     }
 
     handlePageChange(pageNumber) {
-        console.log(`active page is ${pageNumber}`);
         let tempData = [];
         if(9 * pageNumber < this.state.data.length) {
             for (var i = 9 * (pageNumber - 1); i < 9 * pageNumber; i++) {
@@ -73,13 +91,34 @@ class SamplePagination extends React.Component {
         window.scrollTo(0, 350)
     }
 
+    updateCartInfo(data) {
+        const prevdata = this.state.cartData;
+        fetch("http://localhost:4000/cart/addtocart",{
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'auth_token': getJWTToken()
+            },
+            body: {
+                data: prevdata,
+            }
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("add to cart data is:", data);
+                this.setState({
+                    cartData: data,
+                })
+            })
+            .catch(console.log);
+    }
+
     openProductPage(data) {
-        console.log("Just for Testing", data);
         this.props.history.push("/productInfo",{ data: data, userName: this.state.userName });
     }
 
     render() {
-        console.log(this.state.updatedData);
         return(
             <div className={"mt-5 ml-5"}>
                 <Pagination
@@ -111,7 +150,7 @@ class SamplePagination extends React.Component {
                             <div style={{textAlign: "center", backgroundColor: "white"}} className={"pb-3"}>
                                 <div >
                                     {value.available ?
-                                        <Button variant="primary" style={{backgroundColor: '#333B3F', height: 50}}>ADD TO CART</Button> :
+                                        <Button variant="primary" style={{backgroundColor: '#333B3F', height: 50}} onClick={()=>this.updateCartInfo(value)}>ADD TO CART</Button> :
                                         <Card.Text style={{height: 50, fontWeight: 800, fontSize: 20}}>SOLD OUT</Card.Text>
                                     }
                                 </div>

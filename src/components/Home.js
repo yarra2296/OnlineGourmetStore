@@ -11,335 +11,9 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/180/888/39__65309.1604725799.png?c=1",
-                    name: "SPANISH ARBEQUINA EXTRA VIRGIN OLIVE OIL BY PONS / ACEITE DE OLIVA VIRGEN EXTRA PONS - 500ML (17 FL OZ)",
-                    price: 80,
-                    category: "Pantry",
-                    quantity: 10,
-                    available: false
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/180/888/39__65309.1604725799.png?c=1",
-                    name: "SPANISH ARBEQUINA EXTRA VIRGIN OLIVE OIL BY PONS / ACEITE DE OLIVA VIRGEN EXTRA PONS - 500ML (17 FL OZ)",
-                    price: 80,
-                    category: "Pantry",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/180/888/39__65309.1604725799.png?c=1",
-                    name: "SPANISH ARBEQUINA EXTRA VIRGIN OLIVE OIL BY PONS / ACEITE DE OLIVA VIRGEN EXTRA PONS - 500ML (17 FL OZ)",
-                    price: 80,
-                    category: "Pantry",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/180/888/39__65309.1604725799.png?c=1",
-                    name: "SPANISH ARBEQUINA EXTRA VIRGIN OLIVE OIL BY PONS / ACEITE DE OLIVA VIRGEN EXTRA PONS - 500ML (17 FL OZ)",
-                    price: 80,
-                    category: "Pantry",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/180/888/39__65309.1604725799.png?c=1",
-                    name: "SPANISH ARBEQUINA EXTRA VIRGIN OLIVE OIL BY PONS / ACEITE DE OLIVA VIRGEN EXTRA PONS - 500ML (17 FL OZ)",
-                    price: 80,
-                    category: "Pantry",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/153/584/la-espa-ola-duo-aceitunas-rellenas-anchoas-twin-pack-olives-stuffed-with-anchioves-two-easy-open-cans-of-200g-each-5__50008.1605544848.png?c=1",
-                    name: "SPANISH OLIVES STUFFED WITH ANCHOVIES DELUXE (2-PACK) BY LA ESPAÑOLA",
-                    price: 80,
-                    category: "Oils",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/153/584/la-espa-ola-duo-aceitunas-rellenas-anchoas-twin-pack-olives-stuffed-with-anchioves-two-easy-open-cans-of-200g-each-5__50008.1605544848.png?c=1",
-                    name: "SPANISH OLIVES STUFFED WITH ANCHOVIES DELUXE (2-PACK) BY LA ESPAÑOLA",
-                    price: 80,
-                    category: "Oils",
-                    quantity: 10,
-                    available: false
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/153/584/la-espa-ola-duo-aceitunas-rellenas-anchoas-twin-pack-olives-stuffed-with-anchioves-two-easy-open-cans-of-200g-each-5__50008.1605544848.png?c=1",
-                    name: "SPANISH OLIVES STUFFED WITH ANCHOVIES DELUXE (2-PACK) BY LA ESPAÑOLA",
-                    price: 80,
-                    category: "Oils",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/153/584/la-espa-ola-duo-aceitunas-rellenas-anchoas-twin-pack-olives-stuffed-with-anchioves-two-easy-open-cans-of-200g-each-5__50008.1605544848.png?c=1",
-                    name: "SPANISH OLIVES STUFFED WITH ANCHOVIES DELUXE (2-PACK) BY LA ESPAÑOLA",
-                    price: 80,
-                    category: "Oils",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/153/584/la-espa-ola-duo-aceitunas-rellenas-anchoas-twin-pack-olives-stuffed-with-anchioves-two-easy-open-cans-of-200g-each-5__50008.1605544848.png?c=1",
-                    name: "SPANISH OLIVES STUFFED WITH ANCHOVIES DELUXE (2-PACK) BY LA ESPAÑOLA",
-                    price: 80,
-                    category: "Oils",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/153/584/la-espa-ola-duo-aceitunas-rellenas-anchoas-twin-pack-olives-stuffed-with-anchioves-two-easy-open-cans-of-200g-each-5__50008.1605544848.png?c=1",
-                    name: "SPANISH OLIVES STUFFED WITH ANCHOVIES DELUXE (2-PACK) BY LA ESPAÑOLA",
-                    price: 80,
-                    category: "Oils",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/183/852/Untitled_design_1__74701.1605196761.png?c=1",
-                    name: "ITALIAN BLACK TRUFFLE HONEY - 3.9 OZ (110G)",
-                    price: 80,
-                    category: "Condiments",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/183/852/Untitled_design_1__74701.1605196761.png?c=1",
-                    name: "ITALIAN BLACK TRUFFLE HONEY - 3.9 OZ (110G)",
-                    price: 80,
-                    category: "Condiments",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/183/852/Untitled_design_1__74701.1605196761.png?c=1",
-                    name: "ITALIAN BLACK TRUFFLE HONEY - 3.9 OZ (110G)",
-                    price: 80,
-                    category: "Condiments",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/183/852/Untitled_design_1__74701.1605196761.png?c=1",
-                    name: "ITALIAN BLACK TRUFFLE HONEY - 3.9 OZ (110G)",
-                    price: 80,
-                    category: "Condiments",
-                    quantity: 10,
-                    available: false
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/183/852/Untitled_design_1__74701.1605196761.png?c=1",
-                    name: "ITALIAN BLACK TRUFFLE HONEY - 3.9 OZ (110G)",
-                    price: 80,
-                    category: "Condiments",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/183/852/Untitled_design_1__74701.1605196761.png?c=1",
-                    name: "ITALIAN BLACK TRUFFLE HONEY - 3.9 OZ (110G)",
-                    price: 80,
-                    category: "Condiments",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/183/852/Untitled_design_1__74701.1605196761.png?c=1",
-                    name: "ITALIAN BLACK TRUFFLE HONEY - 3.9 OZ (110G)",
-                    price: 80,
-                    category: "Condiments",
-                    quantity: 10,
-                    available: true
-                },
-            ],
+            data: [],
             searchText: "",
-            tempData: [
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/180/888/39__65309.1604725799.png?c=1",
-                    name: "SPANISH ARBEQUINA EXTRA VIRGIN OLIVE OIL BY PONS / ACEITE DE OLIVA VIRGEN EXTRA PONS - 500ML (17 FL OZ)",
-                    price: 80,
-                    category: "Pantry",
-                    quantity: 10,
-                    available: false
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/180/888/39__65309.1604725799.png?c=1",
-                    name: "SPANISH ARBEQUINA EXTRA VIRGIN OLIVE OIL BY PONS / ACEITE DE OLIVA VIRGEN EXTRA PONS - 500ML (17 FL OZ)",
-                    price: 80,
-                    category: "Pantry",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/180/888/39__65309.1604725799.png?c=1",
-                    name: "SPANISH ARBEQUINA EXTRA VIRGIN OLIVE OIL BY PONS / ACEITE DE OLIVA VIRGEN EXTRA PONS - 500ML (17 FL OZ)",
-                    price: 80,
-                    category: "Pantry",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/180/888/39__65309.1604725799.png?c=1",
-                    name: "SPANISH ARBEQUINA EXTRA VIRGIN OLIVE OIL BY PONS / ACEITE DE OLIVA VIRGEN EXTRA PONS - 500ML (17 FL OZ)",
-                    price: 80,
-                    category: "Pantry",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/180/888/39__65309.1604725799.png?c=1",
-                    name: "SPANISH ARBEQUINA EXTRA VIRGIN OLIVE OIL BY PONS / ACEITE DE OLIVA VIRGEN EXTRA PONS - 500ML (17 FL OZ)",
-                    price: 80,
-                    category: "Pantry",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/153/584/la-espa-ola-duo-aceitunas-rellenas-anchoas-twin-pack-olives-stuffed-with-anchioves-two-easy-open-cans-of-200g-each-5__50008.1605544848.png?c=1",
-                    name: "SPANISH OLIVES STUFFED WITH ANCHOVIES DELUXE (2-PACK) BY LA ESPAÑOLA",
-                    price: 80,
-                    category: "Oils",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/153/584/la-espa-ola-duo-aceitunas-rellenas-anchoas-twin-pack-olives-stuffed-with-anchioves-two-easy-open-cans-of-200g-each-5__50008.1605544848.png?c=1",
-                    name: "SPANISH OLIVES STUFFED WITH ANCHOVIES DELUXE (2-PACK) BY LA ESPAÑOLA",
-                    price: 80,
-                    category: "Oils",
-                    quantity: 10,
-                    available: false
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/153/584/la-espa-ola-duo-aceitunas-rellenas-anchoas-twin-pack-olives-stuffed-with-anchioves-two-easy-open-cans-of-200g-each-5__50008.1605544848.png?c=1",
-                    name: "SPANISH OLIVES STUFFED WITH ANCHOVIES DELUXE (2-PACK) BY LA ESPAÑOLA",
-                    price: 80,
-                    category: "Oils",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/153/584/la-espa-ola-duo-aceitunas-rellenas-anchoas-twin-pack-olives-stuffed-with-anchioves-two-easy-open-cans-of-200g-each-5__50008.1605544848.png?c=1",
-                    name: "SPANISH OLIVES STUFFED WITH ANCHOVIES DELUXE (2-PACK) BY LA ESPAÑOLA",
-                    price: 80,
-                    category: "Oils",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/153/584/la-espa-ola-duo-aceitunas-rellenas-anchoas-twin-pack-olives-stuffed-with-anchioves-two-easy-open-cans-of-200g-each-5__50008.1605544848.png?c=1",
-                    name: "SPANISH OLIVES STUFFED WITH ANCHOVIES DELUXE (2-PACK) BY LA ESPAÑOLA",
-                    price: 80,
-                    category: "Oils",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/153/584/la-espa-ola-duo-aceitunas-rellenas-anchoas-twin-pack-olives-stuffed-with-anchioves-two-easy-open-cans-of-200g-each-5__50008.1605544848.png?c=1",
-                    name: "SPANISH OLIVES STUFFED WITH ANCHOVIES DELUXE (2-PACK) BY LA ESPAÑOLA",
-                    price: 80,
-                    category: "Oils",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/183/852/Untitled_design_1__74701.1605196761.png?c=1",
-                    name: "ITALIAN BLACK TRUFFLE HONEY - 3.9 OZ (110G)",
-                    price: 80,
-                    category: "Condiments",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/183/852/Untitled_design_1__74701.1605196761.png?c=1",
-                    name: "ITALIAN BLACK TRUFFLE HONEY - 3.9 OZ (110G)",
-                    price: 80,
-                    category: "Condiments",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/183/852/Untitled_design_1__74701.1605196761.png?c=1",
-                    name: "ITALIAN BLACK TRUFFLE HONEY - 3.9 OZ (110G)",
-                    price: 80,
-                    category: "Condiments",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/183/852/Untitled_design_1__74701.1605196761.png?c=1",
-                    name: "ITALIAN BLACK TRUFFLE HONEY - 3.9 OZ (110G)",
-                    price: 80,
-                    category: "Condiments",
-                    quantity: 10,
-                    available: false
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/183/852/Untitled_design_1__74701.1605196761.png?c=1",
-                    name: "ITALIAN BLACK TRUFFLE HONEY - 3.9 OZ (110G)",
-                    price: 80,
-                    category: "Condiments",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/183/852/Untitled_design_1__74701.1605196761.png?c=1",
-                    name: "ITALIAN BLACK TRUFFLE HONEY - 3.9 OZ (110G)",
-                    price: 80,
-                    category: "Condiments",
-                    quantity: 10,
-                    available: true
-                },
-                {
-                    id: 90384023403248320982304234,
-                    image: "https://cdn11.bigcommerce.com/s-6yfyhv23lh/images/stencil/800x800/products/183/852/Untitled_design_1__74701.1605196761.png?c=1",
-                    name: "ITALIAN BLACK TRUFFLE HONEY - 3.9 OZ (110G)",
-                    price: 80,
-                    category: "Condiments",
-                    quantity: 10,
-                    available: true
-                },
-            ],
+            tempData: [],
             updated: false,
             filters: {department: "", cost: ""},
             departments: ["All departments", "pantry", "oil", "spreads"],
@@ -453,51 +127,57 @@ class Home extends React.Component {
         return(
             <div className={"main bg-light"}>
                 <Header userName={this.state.userName}/>
-                {/*<h1>Hello</h1>*/}
-                {/*<Footer style={"display: sticky; bottom: 0px"}/>*/}
-                <div className="row mt-5 mb-5" style={{marginLeft: 100, marginRight: 100}}>
-                    <div className="col-md-2">
-                        <input type="text" placeholder={"search"} onKeyDown={this.searchText} className={"border pl-2"} />
-                        <div className={"mt-5"}>
-                            <h5>Departments</h5>
-                            <hr />
-                            <div className={"col"}>
-                                {this.state.departments.map((data) => {return (
+                {this.state.tempData.length > 0 ?
+                    <div className="row mt-5 mb-5" style={{marginLeft: 100, marginRight: 100}}>
+                        <div className="col-md-2">
+                            <input type="text" placeholder={"search"} onKeyDown={this.searchText}
+                                   className={"border pl-2"}/>
+                            <div className={"mt-5"}>
+                                <h5>Departments</h5>
+                                <hr/>
+                                <div className={"col"}>
+                                    {this.state.departments.map((data) => {
+                                        return (
+                                            <label className={"col"}>
+                                                <input
+                                                    className={"mr-2"}
+                                                    name={data}
+                                                    type="checkbox"
+                                                    checked={this.state.departmentChecked.find((ch) => ch === data)}
+                                                    onChange={(e) => this.handleCheckbox(e, data, "department")}/>
+                                                {data}
+                                            </label>
+                                        )
+                                    })}
+                                </div>
+                            </div>
+                            {/*<div className={"mt-5"}>
+                                <h5>Cost</h5>
+                                <hr />
+                                <div className={"col"}>
+                                    {this.state.cost.map((data) => {return (
                                         <label className={"col"}>
                                             <input
                                                 className={"mr-2"}
                                                 name={data}
                                                 type="checkbox"
                                                 checked={this.state.departmentChecked.find((ch) => ch === data)}
-                                                onChange={(e) => this.handleCheckbox(e, data, "department")} />
+                                                onChange={(e) => this.handleCheckbox(e, data, "cost")} />
                                             {data}
                                         </label>
-                                )})}
-                            </div>
+                                    )})}
+                                </div>
+                            </div>*/}
                         </div>
-                        {/*<div className={"mt-5"}>
-                            <h5>Cost</h5>
-                            <hr />
-                            <div className={"col"}>
-                                {this.state.cost.map((data) => {return (
-                                    <label className={"col"}>
-                                        <input
-                                            className={"mr-2"}
-                                            name={data}
-                                            type="checkbox"
-                                            checked={this.state.departmentChecked.find((ch) => ch === data)}
-                                            onChange={(e) => this.handleCheckbox(e, data, "cost")} />
-                                        {data}
-                                    </label>
-                                )})}
-                            </div>
-                        </div>*/}
+                        <div className="col-md-10">
+                            <Samplecarousel/>
+                            <SamplePagination data={this.state.tempData} userName={this.state.userName}/>
+                        </div>
+                    </div> :
+                    <div>
+
                     </div>
-                    <div className="col-md-10">
-                        <Samplecarousel />
-                        <SamplePagination data={this.state.tempData} userName={this.state.userName}/>
-                    </div>
-                </div>
+                }
             </div>
         )
     }
