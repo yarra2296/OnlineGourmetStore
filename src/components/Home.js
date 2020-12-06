@@ -14,7 +14,7 @@ class Home extends React.Component {
             tempData: [],
             updated: false,
             filters: {department: "", cost: ""},
-            departments: ["All Departments", "Pantry", "Oils & Vinegars", "Condiments, Butters & Spreads"],
+            departments: ["All departments", "pantry", "oil", "spreads"],
             departmentChecked: [],
             costChecked: [],
             cost: ["All Price", "$1-$10", "$11-$30", "$30+"],
