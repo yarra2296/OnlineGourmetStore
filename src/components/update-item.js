@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
+import Header from "./Header";
 import {
   URL_GET_EDIT_PRODUCT,
   URL_PUT_UPDATE_PRODUCT,
@@ -125,8 +126,14 @@ export default class UpdateItem extends Component {
 
   render() {
     return (
-      <div className="form-wrapper">
-        <h2 className="title1"> Edit Item </h2>
+      <>
+        <Header userName={this.state.userName} />
+        <div class="container">
+        <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+        <div className="form-wrapper">
+        <h2 className="title1" align="center"> Update Item </h2>
         <Form onSubmit={this.onSubmit}>
           <Form.Group controlId="Name">
             <Form.Label>Name</Form.Label>
@@ -201,8 +208,13 @@ export default class UpdateItem extends Component {
           >
             Delete Item
           </Button>
-        </Form>
-      </div>
+          </Form>
+        </div>
+        </div>
+        <div class="col-sm-2"></div>
+        </div>
+        </div>
+        </>
     );
   }
 }
