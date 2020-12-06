@@ -21,14 +21,14 @@ class ProductInfo extends React.Component {
     }
 
     openPage(e, data, name) {
-        console.log(data);
+        console.log("data in product info is:",data);
         if(name === "edit") {
             e.preventDefault();
-            this.props.history.push(EDIT_ITEM, {id: data._id});
+            this.props.history.push(EDIT_ITEM, {id: this.state.data._id});
         }
         if(name === "delete") {
             e.preventDefault();
-            this.props.history.push(EDIT_ITEM, {id: data._id});
+            this.props.history.push(EDIT_ITEM, {id: this.state.data._id});
         }
     }
 
@@ -66,7 +66,7 @@ class ProductInfo extends React.Component {
                                 </div>
                                 <div className={"col"}>
                                     {this.state.userName === "admin" ?
-                                        <Button variant="primary" style={{backgroundColor: '#333B3F', height: 50, width: 200}} onClick={(e) => this.openPage(e, this.state.data, "edit")}>DELETE</Button> :
+                                        <Button variant="primary" style={{backgroundColor: '#333B3F', height: 50, width: 200}} onClick={(e) => this.openPage(e, this.state.data, "delete")}>DELETE</Button> :
                                         <div></div>
                                     }
                                 </div>
