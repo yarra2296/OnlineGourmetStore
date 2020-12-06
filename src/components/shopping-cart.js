@@ -4,7 +4,7 @@ import { URL_PURCHASE_HISTORY } from "./urls";
 import { Accordion, Card, Table } from "react-bootstrap";
 import { getJWTToken } from "./getToken";
 
-export default class PurchaseHistory extends Component {
+export default class ShoppingCart extends Component {
   constructor(props) {
     super(props);
 
