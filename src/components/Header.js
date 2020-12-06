@@ -56,9 +56,10 @@ class Header extends React.Component {
   render() {
     return (
       <div className={"main"}>
+        {/*https://previews.123rf.com/images/antoshkaforever/antoshkaforever1604/antoshkaforever160400060/55371443-heart-with-silhouette-of-a-fork-on-a-white-background-gourmet-icon-delicious-food-lovely-food-icon-t.jpg*/}
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-default navbar-fixed-top">
           <a className="navbar-brand" href="/">
-            Online Gourment Store
+            <img height={100} style={{borderRadius: 50}} src={"https://previews.123rf.com/images/antoshkaforever/antoshkaforever1604/antoshkaforever160400060/55371443-heart-with-silhouette-of-a-fork-on-a-white-background-gourmet-icon-delicious-food-lovely-food-icon-t.jpg"} alt={"Online Gourmet Store"}></img>
           </a>
           <button
             className="navbar-toggler"
