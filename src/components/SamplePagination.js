@@ -30,12 +30,22 @@ class SamplePagination extends React.Component {
     componentDidMount() {
         let tempData = [];
         let data = this.state.data;
-        for(var i = 0; i < 9; i++) {
-            tempData.push(data[i]);
+        if(this.state.data.length > 9) {
+            for (var i = 0; i < 9; i++) {
+                tempData.push(data[i]);
+            }
+            this.setState({
+                updatedData: tempData,
+            });
         }
-        this.setState({
-            updatedData: tempData,
-        });
+        else {
+            for (var i = 0; i < this.state.data.length; i++) {
+                tempData.push(data[i]);
+            }
+            this.setState({
+                updatedData: tempData,
+            });
+        }
         fetch("http://localhost:4000/cart/",{
             method: 'GET',
             headers: {

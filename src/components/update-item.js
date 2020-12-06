@@ -34,6 +34,7 @@ export default class UpdateItem extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props.history.state.id);
     axios
       .get(URL_GET_EDIT_PRODUCT + this.props.match.params.id)
       .then((res) => {
