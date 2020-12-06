@@ -21,6 +21,7 @@ export default class UpdateItem extends Component {
     this.onChangeItemDescription = this.onChangeItemDescription.bind(this);
     this.onChangeItemImage = this.onChangeItemImage.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
 
     // Setting up state
     this.state = {
@@ -30,13 +31,14 @@ export default class UpdateItem extends Component {
       quantity: "",
       description: "",
       image: "",
+      id: this.props.location.state.id
     };
   }
 
   componentDidMount() {
-    console.log(this.props.history.state.id);
+    console.log(this.props.location.state.id);
     axios
-      .get(URL_GET_EDIT_PRODUCT + this.props.match.params.id)
+      .get(URL_GET_EDIT_PRODUCT + this.props.location.state.id)
       .then((res) => {
         this.setState({
           id: res.data.id,
@@ -95,7 +97,7 @@ export default class UpdateItem extends Component {
     };
 
     axios
-      .put(URL_PUT_UPDATE_PRODUCT + this.props.match.params.id, itemObject)
+      .put(URL_PUT_UPDATE_PRODUCT + this.props.location.state.id, itemObject)
       .then((res) => {
         console.log(res.data);
         console.log("Item successfully updated");
@@ -109,8 +111,9 @@ export default class UpdateItem extends Component {
   }
 
   deleteItem() {
+    console.log("del state:"+this.state.id);
     axios
-      .delete(URL_DELETE_PRODUCT + this.props.match.params.id)
+      .delete(URL_DELETE_PRODUCT + this.props.location.state.id)
       .then((res) => {
         console.log("Item successfully deleted!");
         this.props.history.push("/");

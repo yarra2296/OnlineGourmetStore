@@ -24,11 +24,11 @@ class ProductInfo extends React.Component {
         console.log("data in product info is:",data);
         if(name === "edit") {
             e.preventDefault();
-            this.props.history.push(EDIT_ITEM, {id: this.state.data._id});
+            this.props.history.push(EDIT_ITEM, {id: data._id});
         }
         if(name === "delete") {
             e.preventDefault();
-            this.props.history.push(EDIT_ITEM, {id: this.state.data._id});
+            this.props.history.push(EDIT_ITEM, {id: data._id});
         }
     }
 
