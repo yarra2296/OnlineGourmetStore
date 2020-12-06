@@ -55,7 +55,7 @@ class ProductInfo extends React.Component {
                                 <h5 className={"mb-1"}>Product Name:</h5>
                                 <p className={"mb-5"}>{this.state.data.name}</p>
                                 <h5 className={"mb-1"}>Description:</h5>
-                                <p className={"mb-5"}>{this.state.data.name}</p>
+                                <p className={"mb-5"}>{this.state.data.description}</p>
                                 <h5 className={"mb-1"}>Price:</h5>
                                 <p className={"mb-5"}>${this.state.data.price}</p>
                             </div>

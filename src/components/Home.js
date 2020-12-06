@@ -342,13 +342,32 @@ class Home extends React.Component {
             ],
             updated: false,
             filters: {department: "", cost: ""},
-            departments: ["All departments", "Pantry", "Oils", "Condiments"],
+            departments: ["All departments", "pantry", "oil", "spreads"],
             departmentChecked: [],
             costChecked: [],
             cost: ["All Price", "$1-$10", "$11-$30", "$30+"],
             userName: "admin"
         };
         this.searchText = this.searchText.bind(this);
+    };
+
+    componentDidMount() {
+        fetch("http://localhost:4000/products/",{
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("data is:", data);
+                this.setState({
+                    data: data,
+                    tempData: data,
+                })
+            })
+            .catch(console.log);
     }
 
     searchText(event) {
