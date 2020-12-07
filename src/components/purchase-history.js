@@ -3,10 +3,15 @@ import axios from "axios";
 import { URL_PURCHASE_HISTORY } from "./urls";
 import { Accordion, Card, Table } from "react-bootstrap";
 import { getJWTToken } from "./getToken";
+import Header from "./Header";
 
 export default class PurchaseHistory extends Component {
   constructor(props) {
     super(props);
+
+    if (getJWTToken() === null) {
+      props.history.push("/login");
+    }
 
     // Setting up state
     this.state = {
@@ -31,43 +36,71 @@ export default class PurchaseHistory extends Component {
 
   render() {
     return (
-      <Accordion defaultActiveKey="0">
-        {this.state.data.map(function (purchase) {
-          return (
-            <Card>
-              <Accordion.Toggle as={Card.Header} eventKey={purchase._id}>
-                {purchase.purchaseDate}
-              </Accordion.Toggle>
-              <Accordion.Collapse eventKey={purchase._id}>
-                <Card.Body>
+      <>
+        <Header></Header>
+        <div
+          className="container"
+          style={{ border: "2px black solid", marginTop: "20px" }}
+        >
+          {this.state.data.map(function (purchase) {
+            return (
+              <div>
+                <b>
+                  {"order ID:" + purchase._id}
+                  <br />
+                  {"Purchase Date: " + purchase.purchaseDate.substring(0, 10)}
+                </b>
+                <hr />
+                <div>
                   <Table responsive="md">
                     <thead>
                       <tr>
-                        <th>#</th>
+                        <th>Image</th>
                         <th>Name</th>
-                        <th>Price</th>
+                        <th>Price per item</th>
                         <th>Quantity</th>
+                        <th>Price</th>
                       </tr>
                     </thead>
                     <tbody>
                       {purchase.products.map(function (product) {
                         return (
                           <tr id={purchase.id + product.id}>
-                            <td>1</td>
+                            <td>
+                              <img
+                                src={product.image}
+                                alt="product image"
+                                height="100px"
+                                width="100px"
+                              />
+                            </td>
                             <td>{product.name}</td>
-                            <td>{product.price}</td>
+                            <td>${product.price}</td>
                             <td>{product.quantity}</td>
+                            <td>${product.price * product.quantity}</td>
                           </tr>
                         );
                       })}
+                      <tr id={purchase.id + "total"}>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                          <b>Total Price: </b>
+                        </td>
+                        <td>
+                          <b>${purchase.totalPrice}</b>
+                        </td>
+                      </tr>
                     </tbody>
                   </Table>
-                </Card.Body>
-              </Accordion.Collapse>
-            </Card>
-          );
-        })}
-      </Accordion>
+                  <hr />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </>
     );
   }
 }
