@@ -101,6 +101,7 @@ export default class AddItem extends Component {
               <Form.Label>Name</Form.Label>
               <Form.Control
                 type="text"
+                required="required"
                 value={this.state.name}
                 onChange={this.onChangeItemName}
               />
@@ -109,6 +110,7 @@ export default class AddItem extends Component {
             <Form.Group controlId="Price">
               <Form.Label>Price</Form.Label>
               <Form.Control
+                required="required"
                 type="text"
                 value={this.state.price}
                 onChange={this.onChangeItemPrice}
@@ -136,6 +138,7 @@ export default class AddItem extends Component {
             <Form.Group controlId="Quantity">
               <Form.Label>Quantity</Form.Label>
               <Form.Control
+                required="required"
                 type="text"
                 value={this.state.quantity}
                 onChange={this.onChangeItemQuantity}
@@ -145,6 +148,7 @@ export default class AddItem extends Component {
             <Form.Group controlId="Description">
               <Form.Label>Description</Form.Label>
               <Form.Control
+                required="required"
                 type="text"
                 value={this.state.description}
                 onChange={this.onChangeItemDescription}
@@ -154,6 +158,7 @@ export default class AddItem extends Component {
             <Form.Group controlId="Image">
               <Form.Label>Image</Form.Label>
               <Form.Control
+                required="required"
                 type="text"
                 onChange={this.onChangeItemImage}
                 value={this.state.image}
