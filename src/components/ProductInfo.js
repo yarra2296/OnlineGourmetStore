@@ -5,8 +5,9 @@ import {
 import Header from "./Header";
 import {Button, Card} from "react-bootstrap";
 import Footer from "./Footer";
-import {getUserName} from "./getToken";
+import {getJWTToken, getUserName} from "./getToken";
 import {EDIT_ITEM} from "./urls";
+import axios from "axios";
 
 
 class ProductInfo extends React.Component {
@@ -15,9 +16,11 @@ class ProductInfo extends React.Component {
         super(props);
         this.state = {
             data: this.props.location.state.data,
-            userName: getUserName()
+            userName: getUserName(),
+            cartData: this.props.location.state.cartData
         }
         this.openPage = this.openPage.bind(this);
+        this.updateCartInfo = this.updateCartInfo.bind(this);
     }
 
     openPage(e, data, name) {
@@ -29,6 +32,47 @@ class ProductInfo extends React.Component {
         if(name === "delete") {
             e.preventDefault();
             this.props.history.push(EDIT_ITEM, {id: data._id});
+        }
+    }
+
+    updateCartInfo(data) {
+        const tempData = {
+            name: data.name,
+            id: data._id,
+            image: data.image,
+            price: data.price,
+            quantity: 1,
+        };
+        let tempFilterData = [];
+        tempFilterData = this.state.cartData.products.filter((value) => value.id === data._id);
+        if(tempFilterData.length <= 0 || tempFilterData.length === undefined) {
+            console.log("hello");
+            axios
+                .put("http://localhost:4000/cart/addproduct/" + this.state.cartData._id, tempData, {headers: {"auth-token": getJWTToken()}})
+                .then((res) => {
+                    console.log(res);
+                    console.log("Item successfully updated");
+
+                    fetch("http://localhost:4000/cart/",{
+                        method: 'GET',
+                        headers: {
+                            'auth-token': getJWTToken()
+                        },
+                    })
+                        .then((res) => res.json())
+                        .then((data) => {
+                            console.log("cart data is:", data);
+                            this.setState({
+                                cartData: data,
+                            })
+                        })
+                        .catch(console.log);
+
+                    // Redirect to Homepage
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
         }
     }
 
@@ -53,7 +97,7 @@ class ProductInfo extends React.Component {
                             </div>
                             <div>
                                 {this.state.data.available ?
-                                    <Button variant="primary" style={{backgroundColor: '#333B3F', height: 50, width: 500}}>ADD TO CART</Button> :
+                                    <Button variant="primary" style={{backgroundColor: '#333B3F', height: 50, width: 500}} onClick={()=>this.updateCartInfo(this.state.data)}>ADD TO CART</Button> :
                                     <Card.Text style={{height: 50, textAlign: "center", fontWeight: 800, fontSize: 20}}>SOLD OUT</Card.Text>
                                 }
                             </div>

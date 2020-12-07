@@ -8,7 +8,8 @@ import {
     withRouter
 } from "react-router-dom";
 import {getJWTToken, getUserName} from "./getToken";
-import {EDIT_ITEM, HOME} from "./urls";
+import {EDIT_ITEM, HOME, URL_PUT_UPDATE_PRODUCT} from "./urls";
+import axios from "axios";
 
 
 class SamplePagination extends React.Component {
@@ -49,14 +50,12 @@ class SamplePagination extends React.Component {
         fetch("http://localhost:4000/cart/",{
             method: 'GET',
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'auth_token': getJWTToken()
+                'auth-token': getJWTToken()
             },
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log("add to cart data is:", data);
+                console.log("cart data is:", data);
                 this.setState({
                     cartData: data,
                 })
@@ -116,30 +115,66 @@ class SamplePagination extends React.Component {
     }
 
     updateCartInfo(data) {
-        const prevdata = this.state.cartData;
-        fetch("http://localhost:4000/cart/addtocart",{
-            method: 'POST',
+        const tempData = {
+            name: data.name,
+            id: data._id,
+            image: data.image,
+            price: data.price,
+            quantity: 1,
+        };
+        let tempFilterData = [];
+        console.log("data to push the add to cart:",this.state.cartData.products, data);
+        tempFilterData = this.state.cartData.products.filter((value) => value.id === data._id);
+        if(tempFilterData.length <= 0 || tempFilterData.length === undefined) {
+            console.log("hello");
+            axios
+                .put("http://localhost:4000/cart/addproduct/" + this.state.cartData._id, tempData, {headers: {"auth-token": getJWTToken()}})
+                .then((res) => {
+                    console.log(res);
+                    console.log("Item successfully updated");
+                    fetch("http://localhost:4000/cart/",{
+                        method: 'GET',
+                        headers: {
+                            'auth-token': getJWTToken()
+                        },
+                    })
+                        .then((res) => res.json())
+                        .then((data) => {
+                            console.log("cart data is:", data);
+                            this.setState({
+                                cartData: data,
+                            })
+                        })
+                        .catch(console.log);
+
+                    // Redirect to Homepage
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+        /*fetch("http://localhost:4000/cart/addproduct/"+this.state.cartData._id,{
+            method: 'PUT',
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'auth_token': getJWTToken()
+                'auth-token': getJWTToken()
             },
-            body: {
-                data: prevdata,
+            data: {
+                name: data.name,
+                id: data._id,
+                image: data.image,
+                price: data.price,
+                quantity: data.quantity,
             }
         })
             .then((res) => res.json())
             .then((data) => {
                 console.log("add to cart data is:", data);
-                this.setState({
-                    cartData: data,
-                })
             })
-            .catch(console.log);
+            .catch(console.log);*/
     }
 
     openProductPage(data) {
-        this.props.history.push("/productInfo",{ data: data, userName: this.state.userName });
+        this.props.history.push("/productInfo",{ data: data, userName: this.state.userName, cartData: this.state.cartData });
     }
 
     render() {

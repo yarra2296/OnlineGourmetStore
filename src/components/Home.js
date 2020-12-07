@@ -14,7 +14,7 @@ class Home extends React.Component {
             tempData: [],
             updated: false,
             filters: {department: "", cost: ""},
-            departments: ["All departments", "pantry", "oil", "spreads"],
+            departments: ["pantry", "oil", "spreads"],
             departmentChecked: [],
             costChecked: [],
             cost: ["All Price", "$1-$10", "$11-$30", "$30+"],
@@ -229,7 +229,9 @@ class Home extends React.Component {
                 </div>
               </div>
             ) : (
-              <div></div>
+              <div style={{display: "flex", justifyContent: "center", alignItems: "center", height: "100%"}}>
+                  <h1>Your Products are loading...</h1>
+              </div>
             )}
             <Footer></Footer>
           </div>

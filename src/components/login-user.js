@@ -23,6 +23,7 @@ class LogInUser extends Component {
     this.state = {
       user: "",
       password: "",
+      error: "",
     };
   }
 
@@ -39,43 +40,49 @@ class LogInUser extends Component {
 
     //validation
     if (this.state.user === "" || this.state.password === "") {
-      console.log("Please enter username and password");
+      this.setState({
+        error: "Please enter username and password",
+      });
+
       return;
     }
-    const itemObject = {
-      user: this.state.user,
-      password: this.state.password,
-    };
-
-    console.log(itemObject.user + " " + itemObject.password);
 
     //check if admin
-    if (this.state.user === "admin" || this.state.password === "admin") {
+    if (this.state.user === "admin" && this.state.password === "admin") {
       setJWTToken("admin");
       setUserName("admin");
 
       this.setState({
         user: "",
         password: "",
+        error: "",
       });
 
       this.props.history.push("/");
+      return;
     }
 
+    const itemObject = {
+      user: this.state.user,
+      password: this.state.password,
+    };
+
     axios.post(URL_USER_LOGIN, itemObject).then((res) => {
-      console.log(res.data);
       if (res.status === 200) {
         setJWTToken(res.data.token);
         setUserName(res.data.user.name);
-        console.log("Valid username and password");
         this.setState({
           user: "",
           password: "",
+          error: "",
         });
 
         this.props.history.push("/");
       } else {
-        console.log("Invalid combination of username and password");
+        this.setState({
+          error: res.data.errorMessage,
+        });
+
         return;
       }
     });
@@ -83,13 +90,15 @@ class LogInUser extends Component {
 
   render() {
     return (
-      <div className="form-wrapper">
+      <div className="form-wrapper container" style={{ marginTop: "50px" }}>
         <h2 className="title1"> Login </h2>
-
+        <div className="alert-danger">
+          <p>{this.state.error}</p>
+        </div>
         <Form onSubmit={this.onSubmit}>
           <FormElement
             id="username"
-            label="User Name"
+            label="Email"
             fieldType="text"
             value={this.state.user}
             onChange={this.onChangeUserName.bind(this)}

@@ -26,10 +26,10 @@ export default class RegisterUser extends Component {
 
     // Setting up state
     this.state = {
-      name: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
+      name: "AB",
+      email: "ab@gmail.com",
+      password: "aA@123456",
+      confirmPassword: "aA@123456",
     };
   }
 
@@ -52,50 +52,87 @@ export default class RegisterUser extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const itemObject = {
-      name: this.state.name,
-      email: this.state.email,
-      password: this.state.password,
-    };
-
     //validation
+    /**
+     * 1. all fields
+     * 2. password == samepassword
+     * 3. cannot use admin
+     * 4. Regex
+     * 5. email duplicate not allowed (in api)
+     * 6. checkpassword is strong enough
+     */
+
     if (
       this.state.name === "" ||
       this.state.email === "" ||
       this.state.password === "" ||
       this.state.confirmPassword === ""
     ) {
-      console.log("Please enter all fields");
+      this.setState({
+        error: "Please enter all fields",
+      });
       return;
-    } else if (this.state.password !== this.state.confirmPassword) {
-      console.log("Passwords dont match");
+    }
+    const emailPattern = new RegExp(
+      /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
+    );
+    const passwordPattern = new RegExp(
+      "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
+    );
+    if (!emailPattern.test(this.state.email)) {
+      this.setState({
+        error: "Please enter a valid email id",
+      });
+      return;
+    }
+    if (!passwordPattern.test(this.state.password)) {
+      this.setState({
+        error:
+          " Password must be atleast 8 characters long, atleast one uppercase, lowercase and one digit and one special character",
+      });
       return;
     }
 
-    console.log(
-      itemObject.name + " " + itemObject.email + " " + itemObject.password
-    );
+    if (this.state.password !== this.state.confirmPassword) {
+      this.setState({
+        error: "Passwords dont match",
+      });
+      return;
+    }
+
+    const itemObject = {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+    };
 
     axios.post(URL_USER_REGISTER, itemObject).then((res) => {
       console.log(res.data);
       //TODO: Need to redirect to login after user registered.
-    });
+      if (res.status !== 200) {
+        this.setState({
+          error: res.data.errorMessage,
+        });
+        return;
+      }
+      this.setState({
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      });
 
-    this.setState({
-      name: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
+      this.props.history.push("/login");
     });
-
-    this.props.history.push("/login");
   }
 
   render() {
     return (
-      <div className="form-wrapper">
+      <div className="form-wrapper container" style={{ marginTop: "50px" }}>
         <h2 className="title1"> Register </h2>
-
+        <div className="alert-danger">
+          <p>{this.state.error}</p>
+        </div>
         <Form onSubmit={this.onSubmit}>
           <FormElement
             id="name"

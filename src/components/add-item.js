@@ -90,8 +90,12 @@ export default class AddItem extends Component {
     return (
       <>
         <Header userName={this.state.userName} />
-        <div className="form-wrapper">
-          <h2 className="title1"> Add New Item </h2>
+
+        <div className="form-wrapper container" style={{ marginTop: "50px" }}>
+          <h2 className="title1" align="center">
+            {" "}
+            Add New Item{" "}
+          </h2>
           <Form onSubmit={this.onSubmit}>
             <Form.Group controlId="Name">
               <Form.Label>Name</Form.Label>

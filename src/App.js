@@ -17,10 +17,12 @@ import {
   ADD_ITEM,
   EDIT_ITEM,
   SHOPPING_CART,
+  PAYMENT_SUCCESS,
 } from "./components/urls";
 import AddItem from "./components/add-item";
 import UpdateItem from "./components/update-item";
 import ShoppingCart from "./components/shopping-cart";
+import PaymentSuccess from "./components/payment-success";
 
 function App() {
   return (
@@ -35,6 +37,7 @@ function App() {
         <Route path={EDIT_ITEM} exact component={UpdateItem} />
         <Route path={ADD_ITEM} exact component={AddItem} />
         <Route path={SHOPPING_CART} exact component={ShoppingCart} />
+        <Route path={PAYMENT_SUCCESS} exact component={PaymentSuccess} />
 
         {/*<Route path={CART_CHECKOUT} exact component={CartCheckout} />*/}
       </Switch>

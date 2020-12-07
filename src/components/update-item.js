@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
+import Header from "./Header";
 import {
   URL_GET_EDIT_PRODUCT,
   URL_PUT_UPDATE_PRODUCT,
@@ -31,7 +32,7 @@ export default class UpdateItem extends Component {
       quantity: "",
       description: "",
       image: "",
-      id: this.props.location.state.id
+      id: this.props.location.state.id,
     };
   }
 
@@ -111,7 +112,7 @@ export default class UpdateItem extends Component {
   }
 
   deleteItem() {
-    console.log("del state:"+this.state.id);
+    console.log("del state:" + this.state.id);
     axios
       .delete(URL_DELETE_PRODUCT + this.props.location.state.id)
       .then((res) => {
@@ -125,84 +126,93 @@ export default class UpdateItem extends Component {
 
   render() {
     return (
-      <div className="form-wrapper">
-        <h2 className="title1"> Edit Item </h2>
-        <Form onSubmit={this.onSubmit}>
-          <Form.Group controlId="Name">
-            <Form.Label>Name</Form.Label>
-            <Form.Control
-              type="text"
-              value={this.state.name}
-              onChange={this.onChangeItemName}
-            />
-          </Form.Group>
+      <>
+        <Header userName={this.state.userName} />
 
-          <Form.Group controlId="Price">
-            <Form.Label>Price</Form.Label>
-            <Form.Control
-              type="text"
-              value={this.state.price}
-              onChange={this.onChangeItemPrice}
-            />
-          </Form.Group>
+        <div className="form-wrapper container" style={{ marginTop: "50px" }}>
+          <h2 className="title1" align="center">
+            {" "}
+            Update Item{" "}
+          </h2>
+          <Form onSubmit={this.onSubmit}>
+            <Form.Group controlId="Name">
+              <Form.Label>Name</Form.Label>
+              <Form.Control
+                type="text"
+                value={this.state.name}
+                onChange={this.onChangeItemName}
+              />
+            </Form.Group>
 
-          <Form.Group controlId="Category">
-            <Form.Label>Category</Form.Label>
-            <Form.Control
-              as="select"
-              value={this.state.category}
-              onChange={this.onChangeItemCategory}
-              className="my-1 mr-sm-2"
-              custom
+            <Form.Group controlId="Price">
+              <Form.Label>Price</Form.Label>
+              <Form.Control
+                type="text"
+                value={this.state.price}
+                onChange={this.onChangeItemPrice}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="Category">
+              <Form.Label>Category</Form.Label>
+              <Form.Control
+                as="select"
+                value={this.state.category}
+                onChange={this.onChangeItemCategory}
+                className="my-1 mr-sm-2"
+                custom
+              >
+                <option value="0">Choose...</option>
+                <option value="pantry">Pantry</option>
+                <option value="oils">Oils & Vinegars</option>
+                <option value="condiments">
+                  Condiments, Butters & Spreads
+                </option>
+              </Form.Control>
+            </Form.Group>
+
+            <Form.Group controlId="Quantity">
+              <Form.Label>Quantity</Form.Label>
+              <Form.Control
+                type="text"
+                value={this.state.quantity}
+                onChange={this.onChangeItemQuantity}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="Description">
+              <Form.Label>Description</Form.Label>
+              <Form.Control
+                type="text"
+                value={this.state.description}
+                onChange={this.onChangeItemDescription}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="Image">
+              <Form.Label>Image</Form.Label>
+              <Form.Control
+                type="text"
+                onChange={this.onChangeItemImage}
+                value={this.state.image}
+              />
+            </Form.Group>
+
+            <Button variant="danger" size="lg" block="block" type="submit">
+              Update Item
+            </Button>
+
+            <Button
+              onClick={this.deleteItem}
+              variant="danger"
+              size="lg"
+              block="block"
             >
-              <option value="0">Choose...</option>
-              <option value="pantry">Pantry</option>
-              <option value="oils">Oils & Vinegars</option>
-              <option value="condiments">Condiments, Butters & Spreads</option>
-            </Form.Control>
-          </Form.Group>
-
-          <Form.Group controlId="Quantity">
-            <Form.Label>Quantity</Form.Label>
-            <Form.Control
-              type="text"
-              value={this.state.quantity}
-              onChange={this.onChangeItemQuantity}
-            />
-          </Form.Group>
-
-          <Form.Group controlId="Description">
-            <Form.Label>Description</Form.Label>
-            <Form.Control
-              type="text"
-              value={this.state.description}
-              onChange={this.onChangeItemDescription}
-            />
-          </Form.Group>
-
-          <Form.Group controlId="Image">
-            <Form.Label>Image</Form.Label>
-            <Form.Control
-              type="text"
-              onChange={this.onChangeItemImage}
-              value={this.state.image}
-            />
-          </Form.Group>
-
-          <Button variant="danger" size="lg" block="block" type="submit">
-            Update Item
-          </Button>
-
-          <Button
-            onClick={this.deleteItem}
-            variant="danger"
-            size="lg"
-            block="block"
-          >
-            Delete Item
-          </Button>
-        </Form>
-      </div>
+              Delete Item
+            </Button>
+          </Form>
+        </div>
+      </>
     );
   }
 }
