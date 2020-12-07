@@ -71,8 +71,9 @@ export default class ShoppingCart extends Component {
         headers: { "auth-token": _token },
         _data,
       })
-      .then((res) => {});
-    //this.state.props.push(PAYMENT_SUCCESS);
+      .then((res) => {
+        this.props.history.push(PAYMENT_SUCCESS);
+      });
   }
 
   onDeleteItemClick(e, idx) {
@@ -94,9 +95,8 @@ export default class ShoppingCart extends Component {
         });
         this.setState({
           data: total_data,
-          totalCartPrice: _count
-        })
-
+          totalCartPrice: _count,
+        });
       });
   }
 
@@ -108,19 +108,23 @@ export default class ShoppingCart extends Component {
     total_data.products[idx].quantity = e.target.value;
     let _count = 0;
     axios
-        .put("http://localhost:4000/cart/updatequantity/" + this.state.data._id, this.state.data.products, {headers: {"auth-token": getJWTToken()}})
-        .then((res) => {
-          console.log(res);
-          console.log("Item successfully updated");
-          this.state.data.products.forEach((product) => {
-            _count = _count + product.price * product.quantity;
-          });
-          this.setState({data: total_data, totalCartPrice: _count, });
-          // Redirect to Homepage
-        })
-        .catch((error) => {
-          console.log(error);
+      .put(
+        "http://localhost:4000/cart/updatequantity/" + this.state.data._id,
+        this.state.data.products,
+        { headers: { "auth-token": getJWTToken() } }
+      )
+      .then((res) => {
+        console.log(res);
+        console.log("Item successfully updated");
+        this.state.data.products.forEach((product) => {
+          _count = _count + product.price * product.quantity;
         });
+        this.setState({ data: total_data, totalCartPrice: _count });
+        // Redirect to Homepage
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {
@@ -147,7 +151,11 @@ export default class ShoppingCart extends Component {
                     <td>{product.name}</td>
                     <td>{product.price}</td>
                     <td>
-                      <input onChange={(e)=>this.updateCount(e, product)} type="number" value={product.quantity} />
+                      <input
+                        onChange={(e) => this.updateCount(e, product)}
+                        type="number"
+                        value={product.quantity}
+                      />
                     </td>
                     <td>{product.price * product.quantity}</td>
                     <td>
