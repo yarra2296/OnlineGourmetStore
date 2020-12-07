@@ -38,13 +38,16 @@ export default class PurchaseHistory extends Component {
     return (
       <>
         <Header></Header>
-        <div
-          className="container"
-          style={{ border: "2px black solid", marginTop: "20px" }}
-        >
+        <div className="container">
           {this.state.data.map(function (purchase) {
             return (
-              <div>
+              <div
+                style={{
+                  border: "2px black solid",
+                  margin: "20px",
+                  padding: "10px",
+                }}
+              >
                 <b>
                   {"order ID:" + purchase._id}
                   <br />
