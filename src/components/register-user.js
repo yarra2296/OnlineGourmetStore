@@ -26,10 +26,10 @@ export default class RegisterUser extends Component {
 
     // Setting up state
     this.state = {
-      name: "AB",
-      email: "ab@gmail.com",
-      password: "aA@123456",
-      confirmPassword: "aA@123456",
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
     };
   }
 
